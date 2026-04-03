@@ -19,6 +19,7 @@ from report import save_report
 
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 REPORTS_DIR = os.path.join(os.path.dirname(__file__), "reports")
+DOCS_DIR = os.path.join(os.path.dirname(__file__), "docs")
 
 
 def load_config() -> dict:
@@ -128,8 +129,11 @@ def main():
         mall_sections, local_section, starfield_official
     )
     filepath = save_report(report_content, REPORTS_DIR)
+    # GitHub Pages용 docs/ 디렉토리에도 HTML 복사
+    save_report(report_content, DOCS_DIR)
 
     print(f"\n리포트가 생성되었습니다: {os.path.abspath(filepath)}")
+    print(f"웹 배포용 HTML: {os.path.abspath(os.path.join(DOCS_DIR, 'index.html'))}")
 
 
 if __name__ == "__main__":
