@@ -1,0 +1,84 @@
+# Weekend Play - 주말 행사/팝업 자동 조회 설정
+# 이 파일을 직접 수정하거나, python manage.py 로 관리할 수 있습니다.
+
+# Naver Search API 설정
+# https://developers.naver.com/ 에서 애플리케이션 등록 후 발급받으세요.
+# 환경변수 NAVER_CLIENT_ID, NAVER_CLIENT_SECRET 으로도 설정 가능합니다.
+naver_api:
+  client_id: ""
+  client_secret: ""
+
+# 검색 설정
+search:
+  # 검색 결과 수 (장소당, 최대 100)
+  display_count: 10
+  # 최근 N일 이내 결과만 포함
+  days_filter: 14
+  # 검색 키워드 접미사 (각 장소명 뒤에 붙여서 검색)
+  keyword_suffixes:
+    - "팝업"
+    - "행사"
+    - "이벤트"
+    - "축제"
+    - "페스티벌"
+    - "키즈 체험"
+    - "가족"
+
+# 필터링 설정
+filter:
+  # 최종 리포트에 포함할 최대 항목 수
+  max_results: 30
+
+# 조회 대상 장소 목록
+# name: 장소 이름 (검색 키워드로 사용)
+# keywords: 추가 검색 키워드 (선택)
+# event_url: 이벤트 페이지 URL (선택, 직접 스크래핑용)
+# category: 분류 (shopping, park, culture 등)
+places:
+  - name: "하남 스타필드"
+    keywords:
+      - "스타필드 하남"
+    event_url: "https://www.starfield.co.kr/hanam/event/index.do"
+    category: "shopping"
+
+  - name: "구리 현대 프리미엄 아울렛"
+    keywords:
+      - "현대 프리미엄 아울렛 구리"
+      - "현대아울렛 구리"
+    event_url: ""
+    category: "shopping"
+
+  - name: "고덕 아이파크더리버"
+    keywords:
+      - "아이파크더리버 고덕"
+      - "고덕 아이파크"
+    event_url: ""
+    category: "shopping"
+
+  - name: "잠실 롯데월드몰"
+    keywords:
+      - "롯데월드몰"
+      - "롯데월드타워"
+    event_url: "https://www.lwt.co.kr/main/main/main.do"
+    category: "shopping"
+
+  - name: "워커힐"
+    keywords:
+      - "워커힐 호텔"
+      - "워커힐 이벤트"
+    event_url: ""
+    category: "culture"
+
+  - name: "광나루 한강공원"
+    keywords:
+      - "광나루한강공원"
+      - "광나루 한강"
+    event_url: ""
+    category: "park"
+
+  - name: "일자산"
+    keywords:
+      - "일자산 자연공원"
+      - "일자산 둘레길"
+    event_url: ""
+    category: "park"
